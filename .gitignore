@@ -1,0 +1,7 @@
+images/*.png
+images/*.jpg
+out_images/*.jpg
+out_images/*.png
+test.py
+rescale_img1.png
+resized_img1.png
