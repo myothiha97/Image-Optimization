@@ -6,17 +6,21 @@ import glob
 import os
 from PIL import Image
 import csv
+# from scipy.misc.pilutil import imread
 
 def resized_img(url , percentage , output_url):
 
-    image = cv2.imread(url)
+    # image = cv2.imread(url)
+    image = mh.imread(url)
+    image = image[:,:,0]
     # w , h = image.size
     width = int(image.shape[1] * percentage)
     height = int(image.shape[0] * percentage)
     dim = (width , height)
     # resized = cv2.resize(image , dim , interpolation=cv2.INTER_AREA)
-    resized = mh.imresize(image , (width ,height ,4))
+    resized = mh.imresize(image , nsize=dim,order=3)
     cv2.imwrite(output_url,resized , [int(cv2.IMWRITE_PNG_COMPRESSION) , 10])
+    # mh.imsave(out_url,resized)
 
 
 if __name__ == "__main__":
