@@ -30,7 +30,7 @@ def resized_img(url , percentage , output_url):
 
 if __name__ == "__main__":
     # urls = glob.glob('./images')
-    with open('file_sizes_opencv.csv','w') as file:
+    with open('./csv_files/file_sizes_opencv.csv','w') as file:
         dataobj = ['Orginal_size' , 'Optimized_size','reduce_size']
         writer = csv.DictWriter(file, fieldnames=dataobj)
         writer.writeheader()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         optimized_size = float(f"{optimized_size:.2f}")
         reduce_size = org_size - optimized_size
         os.chdir(current_url)
-        with open('file_sizes_opencv.csv','a') as file:
+        with open('./csv_files/file_sizes_opencv.csv','a') as file:
             dataobj = ['Orginal_size' , 'Optimized_size','reduce_size']
             writer = csv.DictWriter(file, fieldnames=dataobj)
 
