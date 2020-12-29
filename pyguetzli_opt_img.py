@@ -18,7 +18,7 @@ def resized_img(url , percentage , output_url):
     height = int(h * percentage)
     dim = (width , height)
     # resized = cv2.resize(image , dim , interpolation=cv2.INTER_AREA)
-    opt_img = pyguetzli.process_pil_image(img, quality=60)
+    opt_img = pyguetzli.process_pil_image(image,quality=60)
     output = open(output_url,'wb')
     output.write(opt_img)
 
@@ -30,7 +30,7 @@ def resized_img(url , percentage , output_url):
 
 if __name__ == "__main__":
     # urls = glob.glob('./images')
-    with open('./csv_files/file_sizes_opencv.csv','w') as file:
+    with open('./csv_files/file_sizes_pyguetzli.csv','w') as file:
         dataobj = ['Orginal_size' , 'Optimized_size','reduce_size']
         writer = csv.DictWriter(file, fieldnames=dataobj)
         writer.writeheader()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         optimized_size = float(f"{optimized_size:.2f}")
         reduce_size = org_size - optimized_size
         os.chdir(current_url)
-        with open('./csv_files/file_sizes_opencv.csv','a') as file:
+        with open('./csv_files/file_sizes_pyguetzli.csv','a') as file:
             dataobj = ['Orginal_size' , 'Optimized_size','reduce_size']
             writer = csv.DictWriter(file, fieldnames=dataobj)
 
