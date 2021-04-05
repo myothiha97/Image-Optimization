@@ -27,7 +27,7 @@ The documentation can be found in this link https://pillow.readthedocs.io/en/sta
 ## Usage Example 
 
 ```
-python3 optimize_img3.py
+python3 pillow_opt_img.py
 ```
 
 
